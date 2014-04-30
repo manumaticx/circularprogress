@@ -1,0 +1,9 @@
+<Alloy>
+	<View id="container">
+	    <View id="background" />
+	    <View id="leftlayer" />
+	    <View id="rotationlayer" />
+	    <View id="rightlayer" />
+			<View id="centerlayer" />
+	</View>
+</Alloy>

@@ -1,0 +1,28 @@
+"#background": {
+	height: Ti.UI.FILL,
+	width: Ti.UI.FILL,
+	zIndex: 0
+},
+"#leftlayer":{
+	backgroundColor: '#fff',
+  visible: true,
+	left: 0,
+	zIndex: 1
+},
+"#rotationlayer":{
+	backgroundColor: '#fff',
+	right: 0,
+	anchorPoint: { x: 0, y: 0.5 },
+	zIndex: 2
+},
+"#rightlayer":{
+	backgroundColor: '#000',
+	right: 0,
+	visible: false,
+	zIndex: 3
+},
+"#centerlayer":{
+	backgroundColor: '#fff',
+	visible: false,
+	zIndex: 4
+}
