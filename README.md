@@ -1,10 +1,17 @@
-# CircularProgressbar [![gitTio](http://gitt.io/badge.png)](http://gitt.io/component/de.manumaticx.circularprogress) [![Titanium](http://www-static.appcelerator.com/badges/titanium-git-badge-sq.png)](http://www.appcelerator.com/titanium/) [![Appcelerator Titanium](http://www-static.appcelerator.com/badges/alloy-git-badge-sq.png)](http://www.appcelerator.com/alloy/)
+# CircularProgressbar [![Titanium](http://www-static.appcelerator.com/badges/titanium-git-badge-sq.png)](http://www.appcelerator.com/titanium/) [![Appcelerator Titanium](http://www-static.appcelerator.com/badges/alloy-git-badge-sq.png)](http://www.appcelerator.com/alloy/)
 
 Alloy Widget for creating a circular progressbar.
 
 ![demo](http://s28.postimg.org/llh93e7zv/circularprogress.gif)
 
 As for now, only iOS is supported but I didn't test mobile web.
+
+## Quick Start
+
+### Installation [![gitTio](http://gitt.io/badge.png)](http://gitt.io/component/de.manumaticx.circularprogress)
+Download the latest distribution ZIP-file and consult the [Titanium Documentation](http://docs.appcelerator.com/titanium/latest/#!/guide/Using_a_Module) on how install it, or simply use the [gitTio CLI](http://gitt.io/cli):
+
+`$ gittio install de.manumaticx.circularprogress`
 
 ### Usage
 
@@ -25,15 +32,15 @@ $.index.add(progressView);
 progressView.setValue(1);
 ```
 
-### TODO
+## TODO
 
 * Android support (blocker: [TIMOB-16596](https://jira.appcelerator.org/browse/TIMOB-16596))
 
-### Credits
+## Credits
 
 Malcolm Hollingsworth (This widget is based on his excellent description [here](http://developer.appcelerator.com/question/154274/is-there-a-way-to-create-circular-progress-bar#answer-265134))
 
-### License
+## License
 
     The MIT License (MIT)
 
