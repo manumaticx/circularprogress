@@ -2,7 +2,7 @@
 
 Alloy Widget for creating a circular progressbar.
 
-![demo](http://s28.postimg.org/llh93e7zv/circularprogress.gif)
+![demo](https://raw.githubusercontent.com/manumaticx/demos/master/circularprogress/screenshots/circularprogress.gif)
 
 As for now, only iOS is supported but I didn't test mobile web.
 
