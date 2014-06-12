@@ -1,9 +1,15 @@
 <Alloy>
 	<View id="container">
-	    <View id="background" />
-	    <View id="leftlayer" />
-	    <View id="rotationlayer" />
-	    <View id="rightlayer" />
-			<View id="centerlayer" />
+		    <View id="baselayer">
+			<View id="progresslayer" />
+			<View id="leftlayer" />
+			<View id="rotationlayer" >
+				<View id="innerrotationlayer" />
+			</View>
+			<View id="rightlayer" />
+			<View id="textlayer" visible="false">
+				<Label id="label" />
+			</View>
+		</View>
 	</View>
 </Alloy>

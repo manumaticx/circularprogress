@@ -2,8 +2,6 @@
 
 Alloy Widget for creating a circular progressbar.
 
-![demo](https://raw.githubusercontent.com/manumaticx/demos/master/circularprogress/screenshots/circularprogress.gif)
-
 As for now, only iOS is supported but I didn't test mobile web.
 
 ## Quick Start
@@ -21,24 +19,22 @@ var circularProgressbar = Alloy.createWidget('de.manumaticx.circularprogress');
 // create instance
 var progressView = circularProgressbar.createView({
     width: 200,
-    color: 'red',
+    backgroundColor: 'white',
+    progressColor: 'red',
     progressWidth: 10
 });
 
 // add to window
 $.index.add(progressView);
 
-// update the progress
-progressView.setValue(1);
+// update the progress (to 75%)
+progressView.setValue(75);
 ```
-
-## TODO
-
-* Android support (blocker: [TIMOB-16596](https://jira.appcelerator.org/browse/TIMOB-16596))
 
 ## Credits
 
-Malcolm Hollingsworth (This widget is based on his excellent description [here](http://developer.appcelerator.com/question/154274/is-there-a-way-to-create-circular-progress-bar#answer-265134))
+* Malcolm Hollingsworth (for his [excellent description](http://developer.appcelerator.com/question/154274/is-there-a-way-to-create-circular-progress-bar#answer-265134))
+* Ronnie Swietek and Yaron Budowski (for Android [workaround](http://developer.appcelerator.com/question/154274/is-there-a-way-to-create-circular-progress-bar#answer-276757))
 
 ## License
 
