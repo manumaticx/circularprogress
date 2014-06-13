@@ -5,7 +5,8 @@ exports.createView = function (_args){
     width: 100,
     height: 100,
     backgroundColor: '#fff',
-    progressColor: '#000'
+    progressColor: '#000',
+    showText: false
   });
 
   // we need a square
@@ -67,6 +68,12 @@ exports.createView = function (_args){
   });
   delete options.radius;
 
+  // style label
+  if (options.showText){
+    $.label.font = options.font;
+    $.label.color = options.color;
+  }
+
   // set initial value
   setValue(options.value || 0);
 
@@ -86,6 +93,9 @@ exports.createView = function (_args){
 
     // rotation
     $.rotationlayer.transform = Ti.UI.create2DMatrix().rotate(angle);
+
+    // update label
+    options.showText && value > 0 && $.label.setText(value);
 
   }
 

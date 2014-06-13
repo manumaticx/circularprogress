@@ -2,7 +2,7 @@
 
 Alloy Widget for creating a circular progressbar.
 
-As for now, only iOS is supported but I didn't test mobile web.
+![](circularprogress.gif)
 
 ## Quick Start
 
@@ -18,10 +18,12 @@ var circularProgressbar = Alloy.createWidget('de.manumaticx.circularprogress');
 
 // create instance
 var progressView = circularProgressbar.createView({
-    width: 200,
+    width: 100,
     backgroundColor: 'white',
     progressColor: 'red',
-    progressWidth: 10
+    progressWidth: 10,
+    margin: 2,
+    showText: true
 });
 
 // add to window
