@@ -7,7 +7,7 @@
 				<View id="innerrotationlayer" />
 			</View>
 			<View id="rightlayer" />
-			<View id="textlayer" visible="false">
+			<View id="centerlayer">
 				<Label id="label" />
 			</View>
 		</View>

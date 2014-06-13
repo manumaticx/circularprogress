@@ -34,58 +34,57 @@ exports.createView = function (_args){
   });
 
   // adjust the layers dimensions (full width)
-  ["baselayer", "progresslayer", "rotationlayer", "textlayer"].forEach(function(layer){
+  ["baselayer", "progresslayer", "rotationlayer"].forEach(function(layer){
     $[layer].width = options.width;
     $[layer].height = options.height;
   });
 
+  if (options.progressWidth){
+    // the wider the progressWidth, the narrower the centerlayer
+    $.centerlayer.width = options.width - options.progressWidth;
+    $.centerlayer.height = options.height - options.progressWidth;
+  } else {
+    $.centerlayer.visible = false;
+  }
+
   // layer positioning
   $.leftlayer.left = 0;
-  $.rightlayer.left = 0;
+  $.rightlayer.right = 0;
   $.rotationlayer.left = 0;
   $.innerrotationlayer.right = 0;
 
-  alert(options.backgroundColor);
   // layer colors
   $.progresslayer.backgroundColor = options.progressColor;
   $.leftlayer.backgroundColor = options.backgroundColor;
   $.innerrotationlayer.backgroundColor = options.backgroundColor;
   $.rightlayer.backgroundColor = options.progressColor;
-  $.textlayer.backgroundColor = options.backgroundColor;
+  $.centerlayer.backgroundColor = options.backgroundColor;
 
   // squares become circles like
   options.radius = (OS_ANDROID ? measurement.dpToPX(options.width) : options.width) / 2;
-  ["baselayer", "progresslayer", "textlayer"].forEach(function(layer){
+  ["baselayer", "progresslayer", "centerlayer"].forEach(function(layer){
     $[layer].borderRadius = options.radius;
   });
   delete options.radius;
 
-  // define getter and setter for value property
-  Object.defineProperty($.container, "value", {
-    get : getValue,
-    set : setValue
-  });
-
+  // set initial value
   setValue(options.value || 0);
+
+  // make this method public to the view
+  $.container.setValue = setValue;
 
   /**
    * Updates the progress view
   **/
   function updateUi(){
 
+    // get the angle from percentage value
     var angle = parseFloat(value / 100 * 360);
 
-    if ( angle < 180 && $.rightlayer.visible ){
-      $.rightlayer.setVisible(false);
-      $.leftlayer.setVisible(true);
-    }
+    $.rightlayer.setVisible( angle > 180 );
+    $.leftlayer.setVisible( angle <= 180 );
 
-    if ( angle == 180 ){
-
-      $.rightlayer.setVisible(true);
-      $.leftlayer.setVisible(false);
-    }
-
+    // rotation
     $.rotationlayer.transform = Ti.UI.create2DMatrix().rotate(angle);
 
   }
@@ -106,6 +105,8 @@ exports.createView = function (_args){
     if (_.isNumber(_value) && _value >= 0 && _value <= 100){
       value = _value;
       updateUi();
+    } else {
+      Ti.API.error("[circularprogress]: value (was "+_value+") must be a number between 0 and 100");
     }
   }
 
