@@ -13,24 +13,44 @@ Download the latest distribution ZIP-file and consult the [Titanium Documentatio
 
 ### Usage
 
+create in xml
+```xml
+<Alloy>
+	<Window class="container">
+		<Widget src="de.manumaticx.circularprogress" id="progress" />
+	</Window>
+</Alloy>
+```
+
+style in tss
 ```javascript
-var circularProgressbar = Alloy.createWidget('de.manumaticx.circularprogress');
+".container": {
+	backgroundColor:"#fff"
+},
+"#progress" : {
+	margin:4,
+	backgroundColor:'#fff',
+	progressColor:'#33b5e5',
+	progressWidth: 5,
+	showText: true,
+	color: '#33b5e5',
+	font: {
+		fontSize: 26,
+		fontFamily: 'Roboto Condensed'
+	}
+}
 
-// create instance
-var progressView = circularProgressbar.createView({
-    width: 100,
-    backgroundColor: 'white',
-    progressColor: 'red',
-    progressWidth: 10,
-    margin: 2,
-    showText: true
-});
+```
 
-// add to window
-$.index.add(progressView);
-
-// update the progress (to 75%)
-progressView.setValue(75);
+update in controller
+```javascript
+function fakeProgress(){
+    var val = 0;
+    var pInterval = setInterval(function(){
+        $.progress.setValue(++val);
+        if (val > 100) clearInterval(pInterval);
+    }, 30);
+}
 ```
 
 ## Credits
