@@ -1,6 +1,13 @@
-exports.createView = function (_args){
-  var measurement = require('alloy/measurement'),
-  value = 0, // current progress value (0 ... 100)
+var measurement = require('alloy/measurement'),
+    init = false,
+    value = 0, // current progress value (0 ... 100)
+    options;
+
+if (arguments[0]){
+  createView(arguments[0]);
+}
+
+function createView(_args){
   options = _.defaults(_args, {
     width: 100,
     height: 100,
@@ -8,7 +15,7 @@ exports.createView = function (_args){
     progressColor: '#000',
     showText: false
   });
-
+  
   // we need a square
   if (options.width !== options.height){
     options.height = options.width;
@@ -74,51 +81,59 @@ exports.createView = function (_args){
     $.label.color = options.color;
   }
 
+  // we're ready to go
+  init = true;
+
   // set initial value
   setValue(options.value || 0);
 
   // make this method public to the view
   $.container.setValue = setValue;
 
-  /**
-   * Updates the progress view
-  **/
-  function updateUi(){
-
-    // get the angle from percentage value
-    var angle = parseFloat(value / 100 * 360);
-
-    $.rightlayer.setVisible( angle > 180 );
-    $.leftlayer.setVisible( angle <= 180 );
-
-    // rotation
-    $.rotationlayer.transform = Ti.UI.create2DMatrix().rotate(angle);
-
-    // update label
-    options.showText && value > 0 && $.label.setText(value);
-
-  }
-
-  /**
-   * returns the current value
-   * @return {Number} value
-  **/
-  function getValue(){
-    return value;
-  }
-
-  /**
-   * sets the current value
-   * @param {Number} value
-  **/
-  function setValue(_value){
-    if (_.isNumber(_value) && _value >= 0 && _value <= 100){
-      value = _value;
-      updateUi();
-    } else {
-      Ti.API.error("[circularprogress]: value (was "+_value+") must be a number between 0 and 100");
-    }
-  }
-
   return $.container;
 };
+
+/**
+ * Updates the progress view
+**/
+function updateUi(){
+
+  if (!init) return;
+
+  // get the angle from percentage value
+  var angle = parseFloat(value / 100 * 360);
+
+  $.rightlayer.setVisible( angle > 180 );
+  $.leftlayer.setVisible( angle <= 180 );
+
+  // rotation
+  $.rotationlayer.transform = Ti.UI.create2DMatrix().rotate(angle);
+
+  // update label
+  options.showText && value > 0 && $.label.setText(value);
+
+}
+
+/**
+ * returns the current value
+ * @return {Number} value
+**/
+function getValue(){
+  return value;
+}
+
+/**
+ * sets the current value
+ * @param {Number} value
+**/
+function setValue(_value){
+  if (_.isNumber(_value) && _value >= 0 && _value <= 100){
+    value = _value;
+    updateUi();
+  } else {
+    Ti.API.error("[circularprogress]: value (was "+_value+") must be a number between 0 and 100");
+  }
+}
+
+exports.createView = createView;
+exports.setValue = setValue;
