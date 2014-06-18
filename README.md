@@ -44,6 +44,7 @@ style in tss
 
 update in controller
 ```javascript
+// either: step-by-step update with setValue
 function fakeProgress(){
     var val = 0;
     var pInterval = setInterval(function(){
@@ -51,6 +52,12 @@ function fakeProgress(){
         if (val > 100) clearInterval(pInterval);
     }, 30);
 }
+
+// or: to specific value at once with animation
+$.progress.animate({
+	value: 75,
+	duration: 500
+});
 ```
 
 ## Credits

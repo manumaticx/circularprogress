@@ -87,8 +87,9 @@ function createView(_args){
   // set initial value
   setValue(options.value || 0);
 
-  // make this method public to the view
+  // make this methods public to the view
   $.container.setValue = setValue;
+  $.container.animate = animate;
 
   return $.container;
 };
@@ -135,5 +136,38 @@ function setValue(_value){
   }
 }
 
+/**
+ * animate to a given value
+ * @param {Object} _args
+ */
+function animate(_args){
+  var value = _args.value || 100;
+  var duration = _args.duration || 100;
+  var angle = parseFloat(value / 100 * 360);
+
+  // create the animation
+  var animation = Ti.UI.createAnimation({
+    duration: duration,
+    transform: Ti.UI.create2DMatrix().rotate(angle)
+  });
+
+  if (value > 50){
+    // find the timeout to switch the layers
+    // as we can't listen to the animation progress
+    var switchTimeout = duration * 100 / (value * 2);
+    setTimeout(function(){
+      $.rightlayer.setVisible(true);
+      $.leftlayer.setVisible(false);
+    }, switchTimeout);
+  }
+
+  // animate it
+  $.rotationlayer.animate(animation);
+
+  // update label
+  options.showText && $.label.setText(value);
+}
+
 exports.createView = createView;
 exports.setValue = setValue;
+exports.animate = animate;
