@@ -13,6 +13,7 @@ function createView(_args){
     height: 100,
     backgroundColor: '#fff',
     progressColor: '#000',
+    progressBackgroundColor: '#666',
     showText: false
   });
   
@@ -22,7 +23,7 @@ function createView(_args){
   }
 
   // container properties
-  ["width", "height", "left", "right", "top", "bottom", "backgroundColor"].forEach(function(prop){
+  ["width", "height", "left", "right", "top", "bottom", "zIndex", "backgroundColor"].forEach(function(prop){
     _.has(options, prop) && ($.container[prop] = options[prop]);
   });
 
@@ -63,8 +64,8 @@ function createView(_args){
 
   // layer colors
   $.progresslayer.backgroundColor = options.progressColor;
-  $.leftlayer.backgroundColor = options.backgroundColor;
-  $.innerrotationlayer.backgroundColor = options.backgroundColor;
+  $.leftlayer.backgroundColor = options.progressBackgroundColor || options.backgroundColor;
+  $.innerrotationlayer.backgroundColor = options.progressBackgroundColor || options.backgroundColor;
   $.rightlayer.backgroundColor = options.progressColor;
   $.centerlayer.backgroundColor = options.backgroundColor;
 
