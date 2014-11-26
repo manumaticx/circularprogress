@@ -31,6 +31,7 @@ style in tss
 	margin:4,
 	backgroundColor:'#fff',
 	progressColor:'#33b5e5',
+	progressBackgroundColor:'#333',
 	progressWidth: 5,
 	showText: true,
 	color: '#33b5e5',
