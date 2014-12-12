@@ -70,11 +70,10 @@ function createView(_args){
   $.centerlayer.backgroundColor = options.backgroundColor;
 
   // squares become circles like
-  options.radius = (OS_ANDROID ? measurement.dpToPX(options.width) : options.width) / 2;
   ["baselayer", "progresslayer", "centerlayer"].forEach(function(layer){
-    $[layer].borderRadius = options.radius;
+    var layerwidth = OS_ANDROID ? measurement.dpToPX($[layer].width) : $[layer].width;
+    $[layer].borderRadius = layerwidth / 2;
   });
-  delete options.radius;
 
   // style label
   if (options.showText){
