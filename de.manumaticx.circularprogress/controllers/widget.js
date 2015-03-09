@@ -160,6 +160,9 @@ function animate(_args){
       $.leftlayer.setVisible(false);
     }, switchTimeout);
   }
+  
+  // workaround https://jira.appcelerator.org/browse/TIMOB-17260
+  JSON.stringify($.rotationlayer.size);
 
   // animate it
   $.rotationlayer.animate(animation);
