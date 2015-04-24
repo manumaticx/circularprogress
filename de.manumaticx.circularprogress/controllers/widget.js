@@ -170,4 +170,5 @@ function animate(_args){
 
 exports.createView = createView;
 exports.setValue = setValue;
+exports.getValue = getValue;
 exports.animate = animate;
