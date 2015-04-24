@@ -89,6 +89,7 @@ function createView(_args){
 
   // make this methods public to the view
   $.container.setValue = setValue;
+  $.container.getValue = getValue;
   $.container.animate = animate;
 
   return $.container;
@@ -173,4 +174,5 @@ function animate(_args){
 
 exports.createView = createView;
 exports.setValue = setValue;
+exports.getValue = getValue;
 exports.animate = animate;
