@@ -89,6 +89,7 @@ function createView(_args){
 
   // make this methods public to the view
   $.container.setValue = setValue;
+  $.container.getValue = getValue;
   $.container.animate = animate;
 
   return $.container;
