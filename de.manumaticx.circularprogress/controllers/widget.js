@@ -14,6 +14,7 @@ function createView(_args){
     backgroundColor: '#fff',
     progressColor: '#000',
     progressBackgroundColor: '#666',
+    formatValue: function(v){return v;},
     showText: false
   });
   
@@ -112,7 +113,7 @@ function updateUi(){
   $.rotationlayer.transform = Ti.UI.create2DMatrix().rotate(angle);
 
   // update label
-  options.showText && value > 0 && $.label.setText(value);
+  options.showText && value > 0 && $.label.setText(options.formatValue(value));
 
 }
 
@@ -169,7 +170,7 @@ function animate(_args){
   $.rotationlayer.animate(animation);
 
   // update label
-  options.showText && $.label.setText(value);
+  options.showText && $.label.setText(options.formatValue(value));
 }
 
 exports.createView = createView;
