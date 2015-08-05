@@ -50,7 +50,7 @@ function fakeProgress(){
     var val = 0;
     var pInterval = setInterval(function(){
         $.progress.setValue(++val);
-        if (val > 100) clearInterval(pInterval);
+        if (val >= 100) clearInterval(pInterval);
     }, 30);
 }
 
