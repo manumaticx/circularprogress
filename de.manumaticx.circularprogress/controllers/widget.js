@@ -113,8 +113,10 @@ function updateUi(){
   $.rotationlayer.transform = Ti.UI.create2DMatrix().rotate(angle);
 
   // update label
-  options.showText && value > 0 && $.label.setText(options.formatValue(value));
-
+  if (options.showText && value > 0){
+  	display = options.showPercentage ? value += "%" : value;
+  	$.label.setText(display);
+  }
 }
 
 /**
