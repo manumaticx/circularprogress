@@ -3,21 +3,23 @@ var measurement = require('alloy/measurement'),
     value = 0, // current progress value (0 ... 100)
     options;
 
+var defaults = {
+  width: 100,
+  height: 100,
+  backgroundColor: '#fff',
+  progressColor: '#000',
+  progressBackgroundColor: '#666',
+  formatValue: function(v){return v;},
+  showText: false
+};
+
 if (arguments[0]){
   createView(arguments[0]);
 }
 
 function createView(_args){
-  options = _.defaults(_args, {
-    width: 100,
-    height: 100,
-    backgroundColor: '#fff',
-    progressColor: '#000',
-    progressBackgroundColor: '#666',
-    formatValue: function(v){return v;},
-    showText: false
-  });
-  
+  options = _.defaults(_args, defaults);
+
   // we need a square
   if (options.width !== options.height){
     options.height = options.width;
@@ -162,7 +164,7 @@ function animate(_args){
       $.leftlayer.setVisible(false);
     }, switchTimeout);
   }
-  
+
   // workaround https://jira.appcelerator.org/browse/TIMOB-17260
   JSON.stringify($.rotationlayer.size);
 
@@ -172,6 +174,13 @@ function animate(_args){
   // update label
   options.showText && $.label.setText(options.formatValue(value));
 }
+
+Object.keys(defaults).forEach(function(key){
+  Object.defineProperty($, key, {
+    get: function(){ return options[key]; },
+    set: function(value){ options[key] = value; }
+  });
+});
 
 exports.createView = createView;
 exports.setValue = setValue;
