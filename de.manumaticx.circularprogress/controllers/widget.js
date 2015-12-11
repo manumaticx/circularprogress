@@ -146,7 +146,7 @@ function setValue(_value){
  */
 function animate(_args){
   var value = _args.value || 0;
-  var duration = _args.duration || 0;
+  var duration = _args.duration || 100;
   var angle = parseFloat(value / 100 * 360);
 
   // create the animation
