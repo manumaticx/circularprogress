@@ -145,7 +145,7 @@ function setValue(_value){
  * @param {Object} _args
  */
 function animate(_args){
-  var value = _args.value || 100;
+  var value = _args.value || 0;
   var duration = _args.duration || 100;
   var angle = parseFloat(value / 100 * 360);
 
