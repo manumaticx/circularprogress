@@ -141,10 +141,33 @@ function setValue(_value){
 }
 
 /**
+ * dynamically set the text
+ * @param {String} _text
+ */
+function setText(_text){
+	options.showText && ($.label.text = _text);
+}
+
+/**
+ * get the label text
+ */
+function getText(){
+	return $.label.text;
+}
+
+/**
+ * dynamically set the visibility of text
+ * @param {Boolean} _flag
+ */
+function showText(_flag){
+	options.showText = _flag;
+}
+
+/**
  * animate to a given value
  * @param {Object} _args
  */
-function animate(_args){
+function animate(_args,callback){
   var value = _args.value || 0;
   var duration = _args.duration || 100;
   var angle = parseFloat(value / 100 * 360);
@@ -154,6 +177,9 @@ function animate(_args){
     duration: duration,
     transform: Ti.UI.create2DMatrix().rotate(angle)
   });
+  if(callback){
+  	animation.addEventListener("complete",callback);
+  }
 
   if (value > 50){
     // find the timeout to switch the layers
@@ -186,3 +212,6 @@ exports.createView = createView;
 exports.setValue = setValue;
 exports.getValue = getValue;
 exports.animate = animate;
+exports.setText = setText;
+exports.getText = getText;
+exports.showText = showText;
