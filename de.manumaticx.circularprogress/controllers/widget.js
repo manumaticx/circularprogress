@@ -160,26 +160,29 @@ function getText(){
  * @param {Boolean} _flag
  */
 function showText(_flag){
-	options.showText = _flag;
+	options.showText = !!_flag;
 }
 
 /**
  * animate to a given value
  * @param {Object} _args
  */
-function animate(_args,callback){
+function animate(_args, _callback){
   var value = _args.value || 0;
   var duration = _args.duration || 100;
   var angle = parseFloat(value / 100 * 360);
+  var callback = _callback || function(){};
 
   // create the animation
   var animation = Ti.UI.createAnimation({
     duration: duration,
     transform: Ti.UI.create2DMatrix().rotate(angle)
   });
-  if(callback){
-  	animation.addEventListener("complete",callback);
-  }
+  
+  animation.addEventListener("complete", function onAnimationComplete(e){
+  	callback();
+  	animation.removeEventListener("complete", onAnimationComplete);
+  });
 
   if (value > 50){
     // find the timeout to switch the layers
