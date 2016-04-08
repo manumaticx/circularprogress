@@ -57,7 +57,7 @@ function fakeProgress(){
 // this is how you customize the value text
 $.progress.formatValue = function(val){ return (val / 100 * 360) + '°'};
 
-// or: to specific value at once with animation
+// or: to specific value at once with animation (does not work on iOS)
 $.progress.animate({
 	value: 75,
 	duration: 500
