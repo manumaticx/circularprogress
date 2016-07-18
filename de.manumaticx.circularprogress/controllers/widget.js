@@ -116,6 +116,7 @@ function updateUi(){
 
   // update label
   options.showText && value > 0 && $.label.setText(options.formatValue(value));
+  $.label.visible = options.showText;
 
 }
 
@@ -145,14 +146,15 @@ function setValue(_value){
  * @param {String} _text
  */
 function setText(_text){
-	options.showText && ($.label.text = _text);
+    options.showText && ($.label.text = _text);
+    updateUi();
 }
 
 /**
  * get the label text
  */
 function getText(){
-	return $.label.text;
+    return $.label.text;
 }
 
 /**
@@ -160,7 +162,8 @@ function getText(){
  * @param {Boolean} _flag
  */
 function showText(_flag){
-	options.showText = !!_flag;
+    options.showText = !!_flag;
+    updateUi();
 }
 
 /**
@@ -180,8 +183,8 @@ function animate(_args, _callback){
   });
   
   animation.addEventListener("complete", function onAnimationComplete(e){
-  	callback();
-  	animation.removeEventListener("complete", onAnimationComplete);
+    callback();
+    animation.removeEventListener("complete", onAnimationComplete);
   });
 
   if (value > 50){
@@ -211,6 +214,13 @@ Object.keys(defaults).forEach(function(key){
   });
 });
 
+function hide(){
+    $.container.hide();
+}
+function show(){
+    $.container.show();
+}
+
 exports.createView = createView;
 exports.setValue = setValue;
 exports.getValue = getValue;
@@ -218,3 +228,5 @@ exports.animate = animate;
 exports.setText = setText;
 exports.getText = getText;
 exports.showText = showText;
+exports.hide = hide;
+exports.show = show;
