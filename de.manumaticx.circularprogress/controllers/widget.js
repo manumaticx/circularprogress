@@ -158,6 +158,15 @@ function getText(){
 }
 
 /**
+ * dynamically set the progress color
+ * @param {String} _color
+ */
+function setProgressColor(_color){
+    $.progresslayer.backgroundColor = _color;
+    $.rightlayer.backgroundColor = _color;
+}
+
+/**
  * dynamically set the visibility of text
  * @param {Boolean} _flag
  */
@@ -227,6 +236,7 @@ exports.getValue = getValue;
 exports.animate = animate;
 exports.setText = setText;
 exports.getText = getText;
+exports.setProgressColor = setProgressColor;
 exports.showText = showText;
 exports.hide = hide;
 exports.show = show;
