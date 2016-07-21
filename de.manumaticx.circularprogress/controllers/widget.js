@@ -167,6 +167,15 @@ function setProgressColor(_color){
 }
 
 /**
+ * dynamically set the progress backgroundColor
+ * @param {String} _color
+ */
+function setProgressBackgroundColor(_color){
+    $.leftlayer.backgroundColor = _color;
+    $.innerrotationlayer.backgroundColor = _color;
+}
+
+/**
  * dynamically set the visibility of text
  * @param {Boolean} _flag
  */
@@ -237,6 +246,7 @@ exports.animate = animate;
 exports.setText = setText;
 exports.getText = getText;
 exports.setProgressColor = setProgressColor;
+exports.setProgressBackgroundColor = setProgressBackgroundColor;
 exports.showText = showText;
 exports.hide = hide;
 exports.show = show;
