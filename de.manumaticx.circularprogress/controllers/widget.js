@@ -179,7 +179,7 @@ function setProgressBackgroundColor(_color){
  * dynamically set the visibility of text
  * @param {Boolean} _flag
  */
-function showText(_flag){
+function setShowText(_flag){
     options.showText = !!_flag;
     updateUi();
 }
@@ -247,6 +247,6 @@ exports.setText = setText;
 exports.getText = getText;
 exports.setProgressColor = setProgressColor;
 exports.setProgressBackgroundColor = setProgressBackgroundColor;
-exports.showText = showText;
+exports.setShowText = setShowText;
 exports.hide = hide;
 exports.show = show;
