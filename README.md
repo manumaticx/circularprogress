@@ -64,6 +64,28 @@ $.progress.animate({
 });
 ```
 
+## API
+### Properties
+* `progressColor` _(String)_ - the color of the progress layer (default: `"#000"`)
+* `progressBackgroundColor` _(String)_ - the color of the outstanding part of progress (default: `"#666"` 😈)
+* `progressWidth` _(Number)_ - the width of the progress (if not defined, progress becomes a cake)
+* `formatValue`_(Function)_ - formats the value displayed in the center
+* `showText` _(Boolean)_ - whether the current progress value should be displayed (default: `false`)
+* `margin` _(Number)_ - adds margin to progress (visible if backgroundColor != progressBackgroundColor)
+
+### Methods
+* `animate(args, callback)` - animate the progress to a given value
+	* `args` _(Object)_ - the value `args.value` and the duration `args.duration`
+	* `callback` _(Function)_ - gets called when the animation is finished
+* `getValue()` - Returns the current value
+* `setValue(value)` - Sets the current value
+	* `value` _(Number)_ - the new value
+* `getText()` - Returns the text
+* `setText(text)` - Sets the text
+	* `text` _(String)_ - the new text value
+* `hide()` - turns off the visibility
+* `show()` - turns on the visibility
+
 ## Credits
 
 * Malcolm Hollingsworth (for his [excellent description](http://developer.appcelerator.com/question/154274/is-there-a-way-to-create-circular-progress-bar#answer-265134))
