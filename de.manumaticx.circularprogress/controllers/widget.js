@@ -9,6 +9,7 @@ var defaults = {
   backgroundColor: '#fff',
   progressColor: '#000',
   progressBackgroundColor: '#666',
+  progressBackgroundGradient: false,
   formatValue: function(v){return v;},
   showText: false
 };
@@ -67,9 +68,13 @@ function createView(_args){
 
   // layer colors
   $.progresslayer.backgroundColor = options.progressColor;
+  $.progresslayer.backgroundGradient = options.progressGradient;
   $.leftlayer.backgroundColor = options.progressBackgroundColor || options.backgroundColor;
+  $.leftlayer.backgroundGradient = options.progressBackgroundGradient || options.backgroundColor;
   $.innerrotationlayer.backgroundColor = options.progressBackgroundColor || options.backgroundColor;
+  $.innerrotationlayer.backgroundGradient = options.progressBackgroundGradient || options.backgroundColor;
   $.rightlayer.backgroundColor = options.progressColor;
+  $.rightlayer.backgroundGradient = options.progressGradient;
   $.centerlayer.backgroundColor = options.backgroundColor;
 
   // squares become circles like
