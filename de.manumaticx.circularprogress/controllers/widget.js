@@ -9,7 +9,7 @@ var defaults = {
   backgroundColor: '#fff',
   progressColor: '#000',
   progressBackgroundColor: '#666',
-  progressBackgroundGradient: false,
+  progressBackgroundGradient: undefined,
   formatValue: function(v){return v;},
   showText: false
 };
@@ -70,9 +70,9 @@ function createView(_args){
   $.progresslayer.backgroundColor = options.progressColor;
   $.progresslayer.backgroundGradient = options.progressGradient;
   $.leftlayer.backgroundColor = options.progressBackgroundColor || options.backgroundColor;
-  $.leftlayer.backgroundGradient = options.progressBackgroundGradient || options.backgroundColor;
+  $.leftlayer.backgroundGradient = options.progressBackgroundGradient;
   $.innerrotationlayer.backgroundColor = options.progressBackgroundColor || options.backgroundColor;
-  $.innerrotationlayer.backgroundGradient = options.progressBackgroundGradient || options.backgroundColor;
+  $.innerrotationlayer.backgroundGradient = options.progressBackgroundGradient;
   $.rightlayer.backgroundColor = options.progressColor;
   $.rightlayer.backgroundGradient = options.progressGradient;
   $.centerlayer.backgroundColor = options.backgroundColor;
