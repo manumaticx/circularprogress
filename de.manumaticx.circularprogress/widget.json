@@ -3,7 +3,7 @@
 	"name": "Circular Progress",
 	"description" : "A Circular Progressbar",
 	"author": "Manuel Lehner (manumaticx@gmail.com)",
-	"version": "0.6.0",
+	"version": "0.6.1",
 	"copyright":"Copyright (c) 2014",
 	"license":"MIT",
 	"min-alloy-version": "1.3",
