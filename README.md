@@ -68,6 +68,7 @@ $.progress.animate({
 ### Properties
 * `progressColor` _(String)_ - the color of the progress layer (default: `"#000"`)
 * `progressBackgroundColor` _(String)_ - the color of the outstanding part of progress (default: `"#666"` 😈)
+* `progressBackgroundGradient` _(Gradient)_ - the progressBackground as [gradient](http://docs.appcelerator.com/platform/latest/#!/api/Gradient)
 * `progressWidth` _(Number)_ - the width of the progress (if not defined, progress becomes a cake)
 * `formatValue`_(Function)_ - formats the value displayed in the center
 * `showText` _(Boolean)_ - whether the current progress value should be displayed (default: `false`)
