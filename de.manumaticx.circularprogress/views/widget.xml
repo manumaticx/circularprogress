@@ -1,5 +1,5 @@
 <Alloy>
-	<View id="container">
+	<View id="container" class="circularprogress_view">
 		    <View id="baselayer">
 			<View id="progresslayer" />
 			<View id="leftlayer" />
@@ -8,7 +8,7 @@
 			</View>
 			<View id="rightlayer" />
 			<View id="centerlayer">
-				<Label id="label" />
+				<Label id="label" class="circularprogress_label" />
 			</View>
 		</View>
 	</View>
