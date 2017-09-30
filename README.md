@@ -87,6 +87,11 @@ $.progress.animate({
 * `hide()` - turns off the visibility
 * `show()` - turns on the visibility
 
+### Styles
+You can add you own styles with the following classes:
+* `.circularprogress_view` _(Ti.UI.View)_
+* `.circularprogress_label` _(Ti.UI.Label)_
+
 ## Credits
 
 * Malcolm Hollingsworth (for his [excellent description](http://developer.appcelerator.com/question/154274/is-there-a-way-to-create-circular-progress-bar#answer-265134))
